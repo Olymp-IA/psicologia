@@ -1,0 +1,227 @@
+.page {
+    padding-top: var(--header-height);
+}
+
+/* Hero */
+.hero {
+    padding: var(--spacing-3xl) 0;
+    background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    text-align: center;
+}
+
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+.badge {
+    display: inline-flex;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: rgba(91, 138, 114, 0.1);
+    color: var(--primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: var(--radius-full);
+    margin-bottom: var(--spacing-lg);
+}
+
+.title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: var(--spacing-lg);
+}
+
+.subtitle {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* Categories */
+.categoriesSection {
+    padding: var(--spacing-xl) 0;
+    border-bottom: 1px solid var(--secondary-dark);
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.categoryBtn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--bg-secondary);
+    border: 2px solid transparent;
+    border-radius: var(--radius-full);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.categoryBtn:hover {
+    border-color: var(--primary);
+}
+
+.categoryBtn.active {
+    background: var(--primary);
+    color: var(--text-inverse);
+}
+
+/* Posts Grid */
+.posts {
+    padding: var(--spacing-3xl) 0;
+}
+
+.postsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+}
+
+.postCard {
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-base);
+}
+
+.postImage {
+    height: 180px;
+    background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.postImage span {
+    font-size: 4rem;
+}
+
+.postContent {
+    padding: var(--spacing-xl);
+}
+
+.postMeta {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.postCategory {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: rgba(91, 138, 114, 0.1);
+    color: var(--primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+}
+
+.postReadTime {
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+.postTitle {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.3;
+}
+
+.postExcerpt {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.postLink {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    transition: gap var(--transition-fast);
+}
+
+.postLink:hover {
+    gap: var(--spacing-md);
+}
+
+.noPosts {
+    text-align: center;
+    padding: var(--spacing-3xl);
+    color: var(--text-secondary);
+}
+
+/* Newsletter */
+.newsletter {
+    padding: var(--spacing-3xl) 0;
+    background: var(--bg-secondary);
+}
+
+.newsletterCard {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.newsletterCard h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.newsletterCard>p {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xl);
+}
+
+.newsletterForm {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.newsletterForm input {
+    flex: 1;
+    padding: var(--spacing-md);
+    font-size: 1rem;
+    background: var(--bg-primary);
+    border: 2px solid transparent;
+    border-radius: var(--radius-full);
+    transition: all var(--transition-fast);
+}
+
+.newsletterForm input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .postsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .postsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .newsletterForm {
+        flex-direction: column;
+    }
+}

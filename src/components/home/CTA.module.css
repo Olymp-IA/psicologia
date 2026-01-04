@@ -1,0 +1,145 @@
+.cta {
+    position: relative;
+    padding: var(--spacing-4xl) 0;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    overflow: hidden;
+}
+
+/* Background Shapes */
+.background {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.shape1 {
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 60%;
+    height: 150%;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    transform: rotate(-15deg);
+}
+
+.shape2 {
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 40%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 50%;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+.content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    color: var(--text-inverse);
+    margin-bottom: var(--spacing-lg);
+}
+
+.subtitle {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Features */
+.features {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
+    flex-wrap: wrap;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--text-inverse);
+    font-size: 0.95rem;
+}
+
+.featureIcon {
+    font-size: 1.25rem;
+}
+
+/* Actions */
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+.phone {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    color: var(--text-inverse);
+    text-decoration: none;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-full);
+    transition: all var(--transition-fast);
+}
+
+.phone:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.phoneIcon {
+    font-size: 1.5rem;
+}
+
+.phoneText {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.phoneLabel {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.phoneNumber {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .features {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    .phone {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+}

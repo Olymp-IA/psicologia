@@ -1,0 +1,252 @@
+.page {
+    padding-top: var(--header-height);
+}
+
+/* Hero */
+.hero {
+    padding: var(--spacing-3xl) 0;
+    background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    text-align: center;
+}
+
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+.badge {
+    display: inline-flex;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: rgba(91, 138, 114, 0.1);
+    color: var(--primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: var(--radius-full);
+    margin-bottom: var(--spacing-lg);
+}
+
+.title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: var(--spacing-lg);
+}
+
+.subtitle {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* Services */
+.services {
+    padding: var(--spacing-3xl) 0;
+}
+
+.serviceCard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl);
+    padding: var(--spacing-2xl);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-xl);
+    margin-bottom: var(--spacing-xl);
+    align-items: center;
+}
+
+.serviceCard.reversed {
+    direction: rtl;
+}
+
+.serviceCard.reversed>* {
+    direction: ltr;
+}
+
+.serviceContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.serviceIcon {
+    font-size: 3.5rem;
+    line-height: 1;
+}
+
+.serviceTitle {
+    font-size: 1.75rem;
+}
+
+.serviceSubtitle {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.serviceDescription {
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.serviceDetails {
+    display: flex;
+    gap: var(--spacing-xl);
+    padding: var(--spacing-md) 0;
+}
+
+.detailItem {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Service Benefits */
+.serviceBenefits {
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-md);
+}
+
+.serviceBenefits h4 {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-primary);
+}
+
+.serviceBenefits ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.serviceBenefits li {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--text-secondary);
+}
+
+.checkIcon {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+/* Pricing */
+.pricing {
+    padding: var(--spacing-2xl) 0;
+}
+
+.pricingCard {
+    background: linear-gradient(135deg, rgba(91, 138, 114, 0.08) 0%, rgba(196, 167, 125, 0.08) 100%);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-2xl);
+    text-align: center;
+}
+
+.pricingCard h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.pricingCard p {
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto var(--spacing-lg);
+    line-height: 1.7;
+}
+
+/* Section Header */
+.sectionHeader {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.sectionHeader h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    margin-bottom: var(--spacing-sm);
+}
+
+.sectionHeader p {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+}
+
+/* FAQs */
+.faqs {
+    padding: var(--spacing-3xl) 0;
+    background: var(--bg-secondary);
+}
+
+.faqGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.faqCard {
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+}
+
+.faqCard h4 {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+}
+
+.faqCard p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* CTA */
+.cta {
+    padding: var(--spacing-3xl) 0;
+    text-align: center;
+}
+
+.cta h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    margin-bottom: var(--spacing-md);
+}
+
+.cta p {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+
+    .serviceCard,
+    .serviceCard.reversed {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        text-align: center;
+    }
+
+    .serviceContent {
+        align-items: center;
+    }
+
+    .serviceDetails {
+        justify-content: center;
+    }
+
+    .serviceBenefits ul {
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .faqGrid {
+        grid-template-columns: 1fr;
+    }
+}
