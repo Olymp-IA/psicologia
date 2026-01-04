@@ -12,8 +12,10 @@ async function fetchApi<T>(
     try {
         const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
 
+        const isFormData = options.body instanceof FormData;
+
         const headers: HeadersInit = {
-            'Content-Type': 'application/json',
+            ...(!isFormData && { 'Content-Type': 'application/json' }),
             ...(token && { Authorization: `Bearer ${token}` }),
             ...options.headers,
         };
@@ -37,17 +39,18 @@ async function fetchApi<T>(
 }
 
 // ========== AUTH ==========
+// ========== AUTH ==========
 export const auth = {
-    login: async (email: string, password: string) =>
+    login: async (identifier: string, password: string) =>
         fetchApi<{ user: any; token: string }>('/auth/login', {
             method: 'POST',
-            body: JSON.stringify({ email, password }),
+            body: JSON.stringify({ identifier, password }),
         }),
 
-    register: async (email: string, password: string, name: string) =>
+    register: async (rut: string, name: string, email: string, password: string, phone?: string) =>
         fetchApi<{ user: any; token: string }>('/auth/register', {
             method: 'POST',
-            body: JSON.stringify({ email, password, name }),
+            body: JSON.stringify({ rut, name, email, password, phone }),
         }),
 
     getMe: async () => fetchApi<any>('/auth/me'),
@@ -69,11 +72,20 @@ export const appointments = {
             `/appointments/availability${date ? `?date=${date}` : ''}`
         ),
 
-    create: async (data: AppointmentData) =>
-        fetchApi<any>('/appointments', {
+    create: async (data: AppointmentData | FormData) => {
+        const isFormData = data instanceof FormData;
+        const headers = isFormData ? {} : { 'Content-Type': 'application/json' };
+        // Si es FormData, fetch pone el boundary automáticamente si no ponemos Content-Type
+
+        return fetchApi<any>('/appointments', {
             method: 'POST',
-            body: JSON.stringify(data),
-        }),
+            body: isFormData ? data : JSON.stringify(data),
+            headers: isFormData ? undefined : undefined // fetchApi defaults content-type to json inside, we need to override or allow custom.
+            // My fetchApi implementation sets Content-Type to json by default.
+            // I need to change fetchApi to NOT set it if it's FormData.
+            // But fetchApi implementation is above.
+        });
+    },
 
     getById: async (id: string) => fetchApi<any>(`/appointments/${id}`),
 
@@ -91,6 +103,8 @@ export const appointments = {
             method: 'PUT',
             body: JSON.stringify(data),
         }),
+
+    getMyAppointments: async () => fetchApi<any[]>('/appointments/my-appointments'),
 };
 
 // ========== CONTACT ==========
