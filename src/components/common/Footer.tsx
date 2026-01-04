@@ -3,7 +3,8 @@
 import React from 'react';
 import Link from 'next/link';
 import styles from './Footer.module.css';
-import OlympiaLogo from './OlympiaLogo';
+import { OlympiaFooter } from './OlympiaFooter';
+
 
 const footerLinks = {
     services: [
@@ -109,8 +110,7 @@ export default function Footer() {
                     <p className={styles.copyright}>
                         © {currentYear} Consulta de Psicología. Todos los derechos reservados.
                     </p>
-
-                    <OlympiaLogo size="small" />
+                    <OlympiaFooter variant="minimal" />
 
                     <div className={styles.legalLinks}>
                         {footerLinks.legal.map((link) => (
