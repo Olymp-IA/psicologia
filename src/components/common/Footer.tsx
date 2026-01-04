@@ -1,6 +1,9 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import styles from './Footer.module.css';
+import OlympiaLogo from './OlympiaLogo';
 
 const footerLinks = {
     services: [
@@ -106,6 +109,9 @@ export default function Footer() {
                     <p className={styles.copyright}>
                         © {currentYear} Consulta de Psicología. Todos los derechos reservados.
                     </p>
+
+                    <OlympiaLogo size="small" />
+
                     <div className={styles.legalLinks}>
                         {footerLinks.legal.map((link) => (
                             <Link key={link.href} href={link.href} className={styles.legalLink}>
@@ -118,3 +124,4 @@ export default function Footer() {
         </footer>
     );
 }
+
